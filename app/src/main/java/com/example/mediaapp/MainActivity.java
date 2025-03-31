@@ -1,5 +1,6 @@
 package com.example.mediaapp;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button play = findViewById(R.id.button3);
         Button pause = findViewById(R.id.button2);
+        Button next=findViewById(R.id.button);
         sk = findViewById(R.id.seekBar);
 
         // Create media player object
@@ -74,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
+       Intent intent = new Intent(this, video.class);
+        next.setOnClickListener(v -> startActivity(intent));
+        // Release media player resources when activity is destroyed
     }
 
     @Override
